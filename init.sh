@@ -11,6 +11,3 @@ else
     echo "Invalid selection. Defaulting to English."
     echo "language: en" > config.yaml
 fi
-if [ ! -f main.py ]; then
-    echo 'import overwatch' > main.py
-fi

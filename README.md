@@ -9,4 +9,4 @@ Write your PythonC code in main.py
 ./compile
 ```
 
-`Final` means it will be inline in the workshop script.
+`Final` means it will be inlined in the workshop script.
