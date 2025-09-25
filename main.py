@@ -10,11 +10,11 @@ class _global:
         if not cls._instance:
             cls._instance = super(_global, cls).__new__(cls, *args, **kwargs)
         return cls._instance
-    
+
     def __init__(self):
         self.foo = "bar"
         self.description: Final = "blah blah"
-    
+
 Global: _global = _global()
 
 @ongoing_global
