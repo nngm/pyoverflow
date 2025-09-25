@@ -1,0 +1,1 @@
+python src/compile.py main.py -o output.ow
