@@ -1,1 +1,1 @@
-python src/compile.py main.py -o output.ow
+python compile.py main.py -o output.ow
