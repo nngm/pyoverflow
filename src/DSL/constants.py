@@ -1,7 +1,12 @@
 import yaml
+from pathlib import Path
 from typing import *
 
-_language = yaml.safe_load(open("config.yaml"))["language"]
+ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = ROOT / "config.yaml"
+
+with open(CONFIG_PATH, encoding="utf-8") as f:
+    config = yaml.safe_load(f)
 
 MELEE = "MELEE"
 Buttons = Literal[
