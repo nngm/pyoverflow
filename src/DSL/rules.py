@@ -41,6 +41,12 @@ class compare(Condition):
     def __call__(self) -> bool:
         return OPS[self.op](_resolve(self.lhs), _resolve(self.rhs))
 
+    def __repr__(self):
+        return f"<compare lhs={self.lhs!r} op='{self.op}' rhs={self.rhs!r}>"
+
+    def __str__(self):
+        return f"{self.lhs} {self.op} {self.rhs}"
+
 
 class is_button_held(Condition):
     event_player = None
