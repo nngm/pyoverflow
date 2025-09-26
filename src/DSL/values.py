@@ -14,7 +14,7 @@ def button(BUTTON: Buttons):
 
 
 def all_players(team: Team):
-    return filtered_array(ALL_PLAYERS, CURRENT_ARRAY_ELEMENT.TEAM == team)
+    return filtered_array(ALL_PLAYERS, compare(CURRENT_ARRAY_ELEMENT.TEAM, "==", team))
 
 
 def team(TEAM: Team):
@@ -29,7 +29,7 @@ def array(*args):
     return list(args)
 
 
-def filtered_array(ARRAY: List[Any], CONDITION: Union[bool, Condition]) -> List[Any]:
+def filtered_array(ARRAY: Iterable[Any], CONDITION: Union[bool, Condition]) -> List[Any]:
     out = []
     prev = getattr(_ctx, "cur_arr_elem", None)
     try:
