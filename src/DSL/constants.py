@@ -5,9 +5,12 @@ from typing import *
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG_PATH = ROOT / "config.yaml"
 
-with open(CONFIG_PATH, encoding="utf-8") as f:
-    config = yaml.safe_load(f)
-    _language = config["language"]
+try:
+    with open(CONFIG_PATH, encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+        _language = config["language"]
+except FileNotFoundError:
+    _language = "en"
 
 MELEE = "MELEE"
 Buttons = Literal[
