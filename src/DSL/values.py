@@ -9,8 +9,8 @@ def count_of(a: Iterable[Any]):
     return len(a)
 
 
-def Button(button: buttons):
-    return button
+def button(BUTTON: Buttons):
+    return BUTTON
 
 
 def all_players(team: Team):

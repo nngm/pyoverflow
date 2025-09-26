@@ -1,6 +1,7 @@
 from src.overwatch import *
 
 class player(player_parent):
+    hasMoved = True
     pass
 
 class _global:
@@ -23,7 +24,7 @@ def init_global_variables():
 
 @ongoing_each_player(ALL_TEAMS, ALL)
 @rules(
-    is_button_held(event_player, Button(MELEE)),
+    is_button_held(event_player, button(MELEE)),
     compare(
         count_of(
             filtered_array(

@@ -4,7 +4,7 @@ from typing import *
 _language = yaml.safe_load(open("config.yaml"))["language"]
 
 MELEE = "MELEE"
-buttons = Literal[
+Buttons = Literal[
     "MELEE",
 ]
 

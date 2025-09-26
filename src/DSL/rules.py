@@ -50,13 +50,13 @@ class compare(Condition):
 
 class is_button_held(Condition):
     event_player = None
-    button = None
+    BUTTON = None
 
-    def __init__(self, event_player: player_parent, button: buttons):
+    def __init__(self, event_player: player_parent, BUTTON: Buttons):
         self.event_player = event_player
-        self.button = button
+        self.BUTTON = BUTTON
 
     def __call__(self):
-        if self.button == MELEE:
+        if self.BUTTON == MELEE:
             return self.event_player.is_melee
         raise NotImplementedError
