@@ -4,17 +4,15 @@ from src.DSL.ctx_event_player import *
 
 
 def ongoing_global(func):
-    cond = []
+    conditions = getattr(func, "_rules", [])
 
     @wraps(func)
-    def wrapper(*conditions):
-        nonlocal cond
-        cond = conditions
+    def wrapper():
         if all(conditions):
             func()
 
     wrapper._func = func
-    wrapper._conditions = cond
+    wrapper._conditions = conditions
     global_functions.append(wrapper)
 
     return wrapper
