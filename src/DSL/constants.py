@@ -7,6 +7,7 @@ CONFIG_PATH = ROOT / "config.yaml"
 
 with open(CONFIG_PATH, encoding="utf-8") as f:
     config = yaml.safe_load(f)
+    _language = config["language"]
 
 MELEE = "MELEE"
 Buttons = Literal[
