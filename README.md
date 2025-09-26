@@ -10,3 +10,4 @@ Write your PythonC code in main.py
 ```
 
 `Final` means it will be inlined in the workshop script.
+The first line of docstrings in each function will be the rule name.
