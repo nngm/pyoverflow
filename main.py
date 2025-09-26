@@ -17,6 +17,7 @@ class _global:
         self.description: Final = "blah blah"
 
 Global: _global = _global()
+ALL_PLAYERS.adopt([player() for _ in range(12)])
 
 @ongoing_global
 def init_global_variables():

@@ -22,6 +22,18 @@ class player_parent:
     is_melee: bool = False
     Punch: bool = True
 
+    def __init__(self):
+        object.__setattr__(self, "_vars", {})
+
+    def __getattr__(self, name: str):
+        return self._vars.get(name)
+
+    def __setattr__(self, name, value):
+        if name.startswith("_") or hasattr(type(self), name):
+            object.__setattr__(self, name, value)
+        else:
+            self._vars[name] = value
+
 
 class vector:
     def __init__(self, x, y, z):

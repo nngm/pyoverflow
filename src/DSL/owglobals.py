@@ -2,4 +2,13 @@ from src.DSL.owtyping import *
 
 global_functions = []
 each_player_functions = []
-ALL_PLAYERS: List[player_parent] = [player_parent() for _ in range(12)]
+
+class PlayerArray:
+    def __init__(self):
+        self._real = []
+    def view(self):
+        return self._real
+    def adopt(self, iterable) -> None:
+        self._real = list(iterable)
+
+ALL_PLAYERS = PlayerArray()
