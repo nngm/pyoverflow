@@ -9,7 +9,7 @@ conda create -n overwatch "python<3.12"
 conda activate overwatch
 ./init
 ```
-Write your PythonC code in main.py
+Write your Python code in main.py
 
 ```sh
 ./compile
