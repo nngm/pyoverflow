@@ -14,6 +14,8 @@ def button(BUTTON: Buttons):
 
 
 def all_players(team: Team):
+    if team == ALL_TEAMS:
+        return ALL_PLAYERS
     return filtered_array(ALL_PLAYERS, compare(CURRENT_ARRAY_ELEMENT.TEAM, "==", team))
 
 
