@@ -44,9 +44,9 @@ class vector:
     def __add__(self, other):
         if isinstance(other, vector):
             return vector(self.x + other.x, self.y + other.y, self.z + other.z)
-        return TypeError
+        raise TypeError
 
     def __sub__(self, other):
         if isinstance(other, vector):
             return vector(self.x - other.x, self.y - other.y, self.z - other.z)
-        return TypeError
+        raise TypeError
