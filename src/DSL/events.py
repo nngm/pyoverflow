@@ -22,12 +22,10 @@ def ongoing_global(func):
 
 def ongoing_each_player(TEAM: Team, PLAYER: Player):
     def real_decorator(func):
-        cond = []
+        conditions = getattr(func, "_rules", [])
 
         @wraps(func)
-        def wrapper(*conditions):
-            nonlocal cond
-            cond = conditions
+        def wrapper():
             for player in ALL_PLAYERS:
                 if TEAM == ALL or player.TEAM == TEAM:
                     if PLAYER == ALL or player.SLOT == PLAYER or player.HERO == PLAYER:
@@ -38,7 +36,7 @@ def ongoing_each_player(TEAM: Team, PLAYER: Player):
         wrapper._func = func
         wrapper._team = TEAM
         wrapper._player = PLAYER
-        wrapper._conditions = cond
+        wrapper._conditions = conditions
         each_player_functions.append(wrapper)
         return wrapper
 
