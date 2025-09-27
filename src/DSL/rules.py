@@ -49,9 +49,6 @@ class compare(Condition):
 
 
 class is_button_held(Condition):
-    event_player = None
-    BUTTON = None
-
     def __init__(self, event_player: player_parent, BUTTON: Buttons):
         self.event_player = event_player
         self.BUTTON = BUTTON

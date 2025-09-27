@@ -16,13 +16,12 @@ OPS = {
 
 
 class player_parent:
-    TEAM: Team = None
-    SLOT: Player = None
-    HERO: Player = None
-    is_melee: bool = False
-    Punch: bool = True
-
     def __init__(self):
+        self.TEAM: Team = None
+        self.SLOT: Player = None
+        self.HERO: Player = None
+        self.is_melee: bool = False
+        self.Punch: bool = True
         object.__setattr__(self, "_vars", {})
 
     def __getattr__(self, name: str):
