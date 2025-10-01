@@ -51,3 +51,8 @@ def workshop_setting_toggle(category: string, name: string, default: bool, sort_
 
 def workshop_setting_combo(category: string, name: string, default: int, options: List[Any], sort_order: int) -> Any:
     return options[default]
+
+def first_of(ARRAY: Iterable[Any]) -> Any:
+    for elem in ARRAY:
+        return elem
+    return 0
