@@ -1,22 +1,15 @@
 from src.overwatch import *
 
 class player(player_parent):
-    hasMoved = True
-    pass
-
-class _global:
-    _instance = None
-
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super(_global, cls).__new__(cls, *args, **kwargs)
-        return cls._instance
-
     def __init__(self):
-        self.foo = "bar"
-        self.description: Final = "blah blah"
+        super().__init__()
+        self.hasMoved = False
 
-Global: _global = _global()
+
+class Global:
+    foo = None
+
+
 ALL_PLAYERS.adopt([player() for _ in range(12)])
 
 @ongoing_global
