@@ -1,15 +1,15 @@
 from src.overwatch import *
 
 class player(player_parent):
-    hasMoved = None
+    hasMoved = Null
 
 ALL_PLAYERS.adopt([player() for _ in range(12)])
 ALL_PLAYERS: list[player]
 event_player = cast(player, event_player)
 
 class Global(metaclass=WorkshopVarMeta):
-    foo = None
-    bar = None
+    foo = Null
+    bar = Null
 
 
 @ongoing_global
