@@ -1,9 +1,7 @@
 from src.overwatch import *
 
 class player(player_parent):
-    def __init__(self):
-        super().__init__()
-        self.hasMoved = False
+    hasMoved = False
 
 ALL_PLAYERS.adopt([player() for _ in range(12)])
 
