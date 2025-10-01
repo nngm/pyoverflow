@@ -6,11 +6,11 @@ from typing import Final
 null: Final = None
 Null: Final = None
 NULL: Final = None
-string = str
-number = float
-ValueLike = Union[Any, Callable[[], Any]]
+string: TypeAlias = str
+number: TypeAlias = float
+ValueLike: TypeAlias = Union[Any, Callable[[], Any]]
 
-OPS = {
+OPS: Final = {
     "==": operator.eq,
     "!=": operator.ne,
     "<": operator.lt,
