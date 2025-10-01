@@ -5,6 +5,14 @@ from src.DSL.owtyping import *
 from src.DSL.rules import *
 
 
+def _resolve(x: ValueLike) -> Any:
+    return x() if callable(x) else x
+
+
+def _as_bool(x: Union[bool, Condition, ValueLike]) -> bool:
+    return bool(_resolve(x))
+
+
 def count_of(a: Iterable[Any]):
     return Expr(lambda: len(list(a)))
 
@@ -46,14 +54,24 @@ def filtered_array(
         _ctx.cur_arr_elem = prev
     return out
 
-def workshop_setting_integer(category: string, name: string, default: int, min: int, max: int, sort_order: int) -> int:
+
+def workshop_setting_integer(
+    category: string, name: string, default: int, min: int, max: int, sort_order: int
+) -> int:
     return default
 
-def workshop_setting_toggle(category: string, name: string, default: bool, sort_order: int) -> bool:
+
+def workshop_setting_toggle(
+    category: string, name: string, default: bool, sort_order: int
+) -> bool:
     return default
 
-def workshop_setting_combo(category: string, name: string, default: int, options: List[Any], sort_order: int) -> Any:
+
+def workshop_setting_combo(
+    category: string, name: string, default: int, options: List[Any], sort_order: int
+) -> Any:
     return options[default]
+
 
 def first_of(ARRAY: Iterable[Any]) -> Any:
     for elem in ARRAY:
