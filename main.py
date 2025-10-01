@@ -4,6 +4,8 @@ class player(player_parent):
     hasMoved = False
 
 ALL_PLAYERS.adopt([player() for _ in range(12)])
+ALL_PLAYERS: list[player]
+event_player = cast(player, event_player)
 
 class Global:
     foo = None
