@@ -1,7 +1,11 @@
 import operator
 from src.DSL.constants import *
 from src.DSL.auto_array import *
+from typing import Final
 
+null: Final = None
+Null: Final = None
+NULL: Final = None
 string = str
 number = float
 ValueLike = Union[Any, Callable[[], Any]]
