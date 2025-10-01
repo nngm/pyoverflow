@@ -20,6 +20,54 @@ OPS: Final = {
 }
 
 
+def _resolve(x: ValueLike) -> Any:
+    return x() if callable(x) else x
+
+
+class Expr:
+    """Lazy value wrapper that supports operator overloading to yield Conditions."""
+
+    def __init__(self, v: ValueLike):
+        self._v = v
+
+    def __call__(self):
+        return _resolve(self._v)
+
+    def __eq__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, "==", other)
+
+    def __ne__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, "!=", other)
+
+    def __lt__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, "<", other)
+
+    def __le__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, "<=", other)
+
+    def __gt__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, ">", other)
+
+    def __ge__(self, other):
+        from src.DSL.rules import compare
+
+        return compare(self, ">=", other)
+
+
+def wrap(v: ValueLike) -> Expr:
+    return v if isinstance(v, Expr) else Expr(v)
+
+
 class player_parent(mettaclass=WorkshopVarMeta):
     def __init__(self):
         self.TEAM: Team = None

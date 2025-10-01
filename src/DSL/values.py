@@ -6,7 +6,7 @@ from src.DSL.rules import *
 
 
 def count_of(a: Iterable[Any]):
-    return len(a)
+    return Expr(lambda: len(list(a)))
 
 
 def button(BUTTON: Buttons):
@@ -31,13 +31,16 @@ def array(*args):
     return list(args)
 
 
-def filtered_array(ARRAY: Iterable[Any], CONDITION: Union[bool, Condition]) -> List[Any]:
-    out = []
+def filtered_array(
+    ARRAY: Iterable[Any],
+    CONDITION: Union[bool, Condition, ValueLike],
+) -> List[Any]:
+    out: List[Any] = []
     prev = getattr(_ctx, "cur_arr_elem", None)
     try:
         for elem in ARRAY:
             _ctx.cur_arr_elem = elem
-            if CONDITION:
+            if _as_bool(CONDITION):
                 out.append(elem)
     finally:
         _ctx.cur_arr_elem = prev

@@ -3,7 +3,16 @@ from src.DSL.constants import *
 from src.DSL.owtyping import *
 
 
-def rules(*conds):
+class Condition(ABC):
+    @abstractmethod
+    def __call__(self):
+        pass
+
+    def __bool__(self) -> bool:
+        return self()
+
+
+def rules(*conds: List[Condition]):
     def deco(func):
         if hasattr(func, "_rules"):
             func._rules.extend(conds)
@@ -16,15 +25,6 @@ def rules(*conds):
 
 def _resolve(x: ValueLike) -> Any:
     return x() if callable(x) else x
-
-
-class Condition(ABC):
-    @abstractmethod
-    def __call__(self):
-        pass
-
-    def __bool__(self) -> bool:
-        return self()
 
 
 class compare(Condition):
