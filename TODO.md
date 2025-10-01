@@ -1,4 +1,5 @@
 # DSL
+- Custom Game Settings
 - inline decorator
 - values
 - events
