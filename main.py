@@ -5,12 +5,11 @@ class player(player_parent):
         super().__init__()
         self.hasMoved = False
 
+ALL_PLAYERS.adopt([player() for _ in range(12)])
 
 class Global:
     foo = None
 
-
-ALL_PLAYERS.adopt([player() for _ in range(12)])
 
 @ongoing_global
 def init_global_variables():
