@@ -42,3 +42,12 @@ def filtered_array(ARRAY: Iterable[Any], CONDITION: Union[bool, Condition]) -> L
     finally:
         _ctx.cur_arr_elem = prev
     return out
+
+def workshop_setting_integer(category: string, name: string, default: int, min: int, max: int, sort_order: int) -> int:
+    return default
+
+def workshop_setting_toggle(category: string, name: string, default: bool, sort_order: int) -> bool:
+    return default
+
+def workshop_setting_combo(category: string, name: string, default: int, options: List[Any], sort_order: int) -> Any:
+    return options[default]
