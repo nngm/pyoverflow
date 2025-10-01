@@ -1,19 +1,21 @@
 from src.overwatch import *
 
 class player(player_parent):
-    hasMoved = False
+    hasMoved = None
 
 ALL_PLAYERS.adopt([player() for _ in range(12)])
 ALL_PLAYERS: list[player]
 event_player = cast(player, event_player)
 
-class Global:
+class Global(metaclass=WorkshopVarMeta):
     foo = None
+    bar = None
 
 
 @ongoing_global
 def init_global_variables():
     Global.foo = custom_string("bar")
+    Global.bar[0] = 123
 
 @ongoing_each_player(ALL_TEAMS, ALL)
 @rules(

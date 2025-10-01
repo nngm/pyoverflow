@@ -1,5 +1,6 @@
 import operator
 from src.DSL.constants import *
+from src.DSL.auto_array import *
 
 string = str
 number = float
@@ -15,7 +16,7 @@ OPS = {
 }
 
 
-class player_parent:
+class player_parent(mettaclass=WorkshopVarMeta):
     def __init__(self):
         self.TEAM: Team = None
         self.SLOT: Player = None
