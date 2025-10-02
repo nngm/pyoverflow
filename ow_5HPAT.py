@@ -118,14 +118,14 @@ def CoolDeathEffects():
 
 
 @ongoing_each_player(ALL_TEAMS, ALL)
-def init_player_variables():
+def init_player_variables(event_player: player):
     """Init Player Variables"""
-    set_status(event_player(), None, "Invincible", 9999)
-    disable_built_in_game_mode_respawning(event_player())
-    enable_death_spectate_all_players(event_player())
-    enable_death_spectate_target_hud(event_player())
+    set_status(event_player, None, "Invincible", 9999)
+    disable_built_in_game_mode_respawning(event_player)
+    enable_death_spectate_all_players(event_player)
+    enable_death_spectate_target_hud(event_player)
     event_player.BouncePadCooldown = 5
-    set_damage_dealt(event_player(), 0.030)
+    set_damage_dealt(event_player, 0.030)
 
 
 @ongoing_global
