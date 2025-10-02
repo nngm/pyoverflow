@@ -34,32 +34,32 @@ class Expr:
         return _resolve(self._v)
 
     def __eq__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, "==", other)
 
     def __ne__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, "!=", other)
 
     def __lt__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, "<", other)
 
     def __le__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, "<=", other)
 
     def __gt__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, ">", other)
 
     def __ge__(self, other):
-        from src.DSL.rules import compare
+        from src.DSL.rule import compare
 
         return compare(self, ">=", other)
 
