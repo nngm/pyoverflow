@@ -1,3 +1,4 @@
+import inspect
 from functools import wraps
 from src.DSL.owglobals import *
 from src.DSL.ctx_event_player import *
@@ -22,6 +23,24 @@ def ongoing_each_player(TEAM: Team, PLAYER: Player):
     def real_decorator(func):
         conditions = getattr(func, "_rules", [])
 
+        sig = inspect.signature(func)
+        required_pos = [
+            p
+            for p in sig.parameters.values()
+            if p.kind
+            in (
+                inspect.Parameter.POSITIONAL_ONLY,
+                inspect.Parameter.POSITIONAL_OR_KEYWORD,
+            )
+            and p.default is inspect._empty
+        ]
+        if len(required_pos) > 1:
+            raise TypeError(
+                f"{func.__name__} must take 0 or 1 positional parameter, got {len(required_pos)}"
+            )
+        takes_player_arg = len(required_pos) == 1
+        # -----------------------------------------------------------
+
         @wraps(func)
         def wrapper():
             for player in ALL_PLAYERS:
@@ -29,7 +48,10 @@ def ongoing_each_player(TEAM: Team, PLAYER: Player):
                     if PLAYER == ALL or player.SLOT == PLAYER or player.HERO == PLAYER:
                         with with_event_player(player):
                             if all(conditions):
-                                func(player)
+                                if takes_player_arg:
+                                    func(player)
+                                else:
+                                    func()
 
         wrapper._func = func
         wrapper._team = TEAM

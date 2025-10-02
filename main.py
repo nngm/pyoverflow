@@ -31,7 +31,7 @@ def init_global_variables():
         1
     )
 )
-def let_player_minigame():
+def let_player_minigame(event_player: player):
     event_player.Punch = True
 
 if __name__ == "__main__":
