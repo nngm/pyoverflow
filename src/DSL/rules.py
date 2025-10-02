@@ -54,6 +54,28 @@ class is_button_held(Condition):
         self.BUTTON = BUTTON
 
     def __call__(self):
-        if self.BUTTON == MELEE:
-            return self.event_player.is_melee
-        raise NotImplementedError
+        mapping = {
+            MELEE: "is_melee",
+            PRIMARY_FIRE: "is_primary_fire",
+            SECONDARY_FIRE: "is_secondary_fire",
+            ABILITY_1: "is_ability1",
+            ABILITY_2: "is_ability2",
+            JUMP: "is_jump",
+            INTERACT: "is_interact",
+            ULTIMATE: "is_ultimate",
+            RELOAD: "is_reload",
+            CROUCH: "is_crouch",
+        }
+        attr = mapping.get(self.BUTTON)
+        return bool(getattr(self.event_player, attr, False))
+
+
+class is_using_ability(Condition):
+    def __init__(self, event_player: player_parent, ability_index: int):
+        self.event_player = event_player
+        self.ability_index = ability_index
+
+    def __call__(self) -> bool:
+        # Placeholder: rely on attributes that tests may set, e.g., is_ability1
+        attr = f"is_ability{self.ability_index}"
+        return bool(getattr(self.event_player, attr, False))

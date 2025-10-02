@@ -68,17 +68,20 @@ def wrap(v: ValueLike) -> Expr:
     return v if isinstance(v, Expr) else Expr(v)
 
 
-class player_parent(mettaclass=WorkshopVarMeta):
+class player_parent(metaclass=WorkshopVarMeta):
     def __init__(self):
+        object.__setattr__(self, "_vars", {})
         self.TEAM: Team = None
         self.SLOT: Player = None
         self.HERO: Player = None
         self.is_melee: bool = False
         self.Punch: bool = True
-        object.__setattr__(self, "_vars", {})
 
     def __getattr__(self, name: str):
-        return self._vars.get(name)
+        d = object.__getattribute__(self, "__dict__")
+        if "_vars" in d:
+            return self._vars.get(name)
+        raise AttributeError(name)
 
     def __setattr__(self, name, value):
         if name.startswith("_") or hasattr(type(self), name):
@@ -102,3 +105,15 @@ class vector:
         if isinstance(other, vector):
             return vector(self.x - other.x, self.y - other.y, self.z - other.z)
         raise TypeError
+
+    def __mul__(self, other):
+        if isinstance(other, (int, float)):
+            return vector(self.x * other, self.y * other, self.z * other)
+        if isinstance(other, vector):
+            return vector(self.x * other.x, self.y * other.y, self.z * other.z)
+        raise TypeError
+
+    __rmul__ = __mul__
+
+    def __repr__(self):
+        return f"vector({self.x}, {self.y}, {self.z})"
