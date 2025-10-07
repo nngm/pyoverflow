@@ -18,6 +18,7 @@
   - [[keys, ], [values, ]]
 - First class function (and also decorator)
   - call(func_name, args, kwargs)
+  - function also has local variables info
 - call stack
 - Do not call cusom functions in rules
 - Custom Game Settings
