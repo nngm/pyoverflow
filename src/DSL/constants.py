@@ -1,3 +1,4 @@
+from enum import StrEnum
 from pathlib import Path
 from typing import *
 try:
@@ -17,67 +18,81 @@ try:
 except FileNotFoundError:
     pass
 
-MELEE = "MELEE"
-PRIMARY_FIRE = "PRIMARY_FIRE"
-SECONDARY_FIRE = "SECONDARY_FIRE"
-ABILITY_1 = "ABILITY_1"
-ABILITY_2 = "ABILITY_2"
-JUMP = "JUMP"
-INTERACT = "INTERACT"
-ULTIMATE = "ULTIMATE"
-RELOAD = "RELOAD"
-CROUCH = "CROUCH"
 
-Buttons = Literal[
-    "MELEE",
-    "PRIMARY_FIRE",
-    "SECONDARY_FIRE",
-    "ABILITY_1",
-    "ABILITY_2",
-    "JUMP",
-    "INTERACT",
-    "ULTIMATE",
-    "RELOAD",
-    "CROUCH",
-]
+class Button(StrEnum):
+    MELEE = "MELEE"
+    PRIMARY_FIRE = "PRIMARY_FIRE"
+    SECONDARY_FIRE = "SECONDARY_FIRE"
+    ABILITY_1 = "ABILITY_1"
+    ABILITY_2 = "ABILITY_2"
+    JUMP = "JUMP"
+    INTERACT = "INTERACT"
+    ULTIMATE = "ULTIMATE"
+    RELOAD = "RELOAD"
+    CROUCH = "CROUCH"
 
-ALL_TEAMS = "ALL"
-TEAM_1 = "TEAM 1"
-TEAM_2 = "TEAM 2"
 
-ALL = "ALL"
-SLOT_0 = "SLOT 0"
-SLOT_1 = "SLOT 1"
-SLOT_2 = "SLOT 2"
-SLOT_3 = "SLOT 3"
-SLOT_4 = "SLOT 4"
-SLOT_5 = "SLOT 5"
-SLOT_6 = "SLOT 6"
-SLOT_7 = "SLOT 7"
-SLOT_8 = "SLOT 8"
-SLOT_9 = "SLOT 9"
-SLOT_10 = "SLOT 10"
-SLOT_11 = "SLOT 11"
-TRACER = "TRACER"
-HELLO = "HELLO"
+Buttons = Button
 
-Team = Literal["ALL", "TEAM 1", "TEAM 2"]
-Player = Literal[
-    "ALL",
-    "SLOT 0",
-    "SLOT 1",
-    "SLOT 2",
-    "SLOT 3",
-    "SLOT 4",
-    "SLOT 5",
-    "SLOT 6",
-    "SLOT 7",
-    "SLOT 8",
-    "SLOT 9",
-    "SLOT 10",
-    "SLOT 11",
-    "TRACER",
-]
+MELEE: Final[Button] = Button.MELEE
+PRIMARY_FIRE: Final[Button] = Button.PRIMARY_FIRE
+SECONDARY_FIRE: Final[Button] = Button.SECONDARY_FIRE
+ABILITY_1: Final[Button] = Button.ABILITY_1
+ABILITY_2: Final[Button] = Button.ABILITY_2
+JUMP: Final[Button] = Button.JUMP
+INTERACT: Final[Button] = Button.INTERACT
+ULTIMATE: Final[Button] = Button.ULTIMATE
+RELOAD: Final[Button] = Button.RELOAD
+CROUCH: Final[Button] = Button.CROUCH
+
+class TeamId(StrEnum):
+    ALL_TEAMS = "ALL"
+    TEAM_1 = "TEAM 1"
+    TEAM_2 = "TEAM 2"
+
+
+Team = TeamId
+
+ALL_TEAMS: Final[TeamId] = TeamId.ALL_TEAMS
+TEAM_1: Final[TeamId] = TeamId.TEAM_1
+TEAM_2: Final[TeamId] = TeamId.TEAM_2
+
+
+class PlayerSlot(StrEnum):
+    ALL = "ALL"
+    SLOT_0 = "SLOT 0"
+    SLOT_1 = "SLOT 1"
+    SLOT_2 = "SLOT 2"
+    SLOT_3 = "SLOT 3"
+    SLOT_4 = "SLOT 4"
+    SLOT_5 = "SLOT 5"
+    SLOT_6 = "SLOT 6"
+    SLOT_7 = "SLOT 7"
+    SLOT_8 = "SLOT 8"
+    SLOT_9 = "SLOT 9"
+    SLOT_10 = "SLOT 10"
+    SLOT_11 = "SLOT 11"
+    TRACER = "TRACER"
+    HELLO = "HELLO"
+
+
+Player = PlayerSlot
+
+ALL: Final[PlayerSlot] = PlayerSlot.ALL
+SLOT_0: Final[PlayerSlot] = PlayerSlot.SLOT_0
+SLOT_1: Final[PlayerSlot] = PlayerSlot.SLOT_1
+SLOT_2: Final[PlayerSlot] = PlayerSlot.SLOT_2
+SLOT_3: Final[PlayerSlot] = PlayerSlot.SLOT_3
+SLOT_4: Final[PlayerSlot] = PlayerSlot.SLOT_4
+SLOT_5: Final[PlayerSlot] = PlayerSlot.SLOT_5
+SLOT_6: Final[PlayerSlot] = PlayerSlot.SLOT_6
+SLOT_7: Final[PlayerSlot] = PlayerSlot.SLOT_7
+SLOT_8: Final[PlayerSlot] = PlayerSlot.SLOT_8
+SLOT_9: Final[PlayerSlot] = PlayerSlot.SLOT_9
+SLOT_10: Final[PlayerSlot] = PlayerSlot.SLOT_10
+SLOT_11: Final[PlayerSlot] = PlayerSlot.SLOT_11
+TRACER: Final[PlayerSlot] = PlayerSlot.TRACER
+HELLO: Final[PlayerSlot] = PlayerSlot.HELLO
 
 if _language in ["en"]:
     CONDITIONS_NAME = "conditions"
@@ -85,3 +100,90 @@ if _language in ["en"]:
 elif _language in ["ko"]:
     CONDITIONS_NAME = "condition"
     ACTIONS_NAME = "action"
+
+
+class Status(StrEnum):
+    STUNNED = "Stunned"
+    INVINCIBLE = "Invincible"
+    FROZEN = "Frozen"
+
+
+STUNNED: Final[Status] = Status.STUNNED
+INVINCIBLE: Final[Status] = Status.INVINCIBLE
+FROZEN: Final[Status] = Status.FROZEN
+
+
+class EffectName(StrEnum):
+    BAD_BEAM = "Bad Beam"
+    SPHERE = "Sphere"
+    RING = "Ring"
+    GOOD_EXPLOSION = "Good Explosion"
+    RING_EXPLOSION = "Ring Explosion"
+    RING_EXPLOSION_SOUND = "Ring Explosion Sound"
+    EXPLOSION_SOUND = "Explosion Sound"
+    GOOD_PICKUP_EFFECT = "Good Pickup Effect"
+    RING_EXPLOSION_SLASH = "Ring/Explosion"
+    BAD_EXPLOSION = "Bad Explosion"
+
+
+BAD_BEAM: Final[EffectName] = EffectName.BAD_BEAM
+SPHERE: Final[EffectName] = EffectName.SPHERE
+RING: Final[EffectName] = EffectName.RING
+GOOD_EXPLOSION: Final[EffectName] = EffectName.GOOD_EXPLOSION
+RING_EXPLOSION: Final[EffectName] = EffectName.RING_EXPLOSION
+RING_EXPLOSION_SOUND: Final[EffectName] = EffectName.RING_EXPLOSION_SOUND
+EXPLOSION_SOUND: Final[EffectName] = EffectName.EXPLOSION_SOUND
+GOOD_PICKUP_EFFECT: Final[EffectName] = EffectName.GOOD_PICKUP_EFFECT
+RING_EXPLOSION_SLASH: Final[EffectName] = EffectName.RING_EXPLOSION_SLASH
+BAD_EXPLOSION: Final[EffectName] = EffectName.BAD_EXPLOSION
+
+
+class Color(StrEnum):
+    RED = "Red"
+    GREEN = "Green"
+    BLUE = "Blue"
+    WHITE = "White"
+    SKY_BLUE = "Sky Blue"
+    PURPLE = "Purple"
+    BLACK = "Black"
+
+
+RED: Final[Color] = Color.RED
+GREEN: Final[Color] = Color.GREEN
+BLUE: Final[Color] = Color.BLUE
+WHITE: Final[Color] = Color.WHITE
+SKY_BLUE: Final[Color] = Color.SKY_BLUE
+PURPLE: Final[Color] = Color.PURPLE
+BLACK: Final[Color] = Color.BLACK
+
+
+class HudTextAlign(StrEnum):
+    LEFT = "Left"
+
+
+LEFT: Final[HudTextAlign] = HudTextAlign.LEFT
+
+
+__all__ = [
+    "ROOT",
+    "CONFIG_PATH",
+    "Button",
+    "Buttons",
+    *Button.__members__.keys(),
+    "TeamId",
+    "Team",
+    *TeamId.__members__.keys(),
+    "PlayerSlot",
+    "Player",
+    *PlayerSlot.__members__.keys(),
+    "CONDITIONS_NAME",
+    "ACTIONS_NAME",
+    "Status",
+    *Status.__members__.keys(),
+    "EffectName",
+    *EffectName.__members__.keys(),
+    "Color",
+    *Color.__members__.keys(),
+    "HudTextAlign",
+    *HudTextAlign.__members__.keys(),
+]
