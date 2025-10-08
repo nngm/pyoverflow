@@ -102,6 +102,50 @@ elif _language in ["ko"]:
     ACTIONS_NAME = "action"
 
 
+class Reevaluation(StrEnum):
+    VISIBLE_TO_AND_STRING = "Visible to and String"
+    STRING = "String"
+    VISIBLE_TO_SORT_ORDER_STRING = "Visible to, Sort Order, String"
+    SORT_ORDER_AND_STRING = "Sort Order and String"
+    VISIBLE_TO_AND_SORT_ORDER = "Visible to and Sort Order"
+    VISIBLE_TO = "Visible to"
+    SORT_ORDER = "Sort Order"
+    NONE = "None"
+    VISIBLE_TO_SORT_ORDER_STRING_AND_COLOR = "Visible to, Sort Order, String and Color"
+    SORT_ORDER_STRING_AND_COLOR = "Sort Order, String and Color"
+    VISIBLE_TO_SORT_ORDER_AND_COLOR = "Visible to, Sort Order and Color"
+    VISIBLE_TO_AND_COLOR = "Visible to and Color"
+    SORT_ORDER_AND_COLOR = "Sort Order and Color"
+    COLOR = "Color"
+
+
+VISIBLE_TO_AND_STRING: Final[Reevaluation] = Reevaluation.VISIBLE_TO_AND_STRING
+STRING: Final[Reevaluation] = Reevaluation.STRING
+VISIBLE_TO_SORT_ORDER_STRING: Final[Reevaluation] = Reevaluation.VISIBLE_TO_SORT_ORDER_STRING
+SORT_ORDER_AND_STRING: Final[Reevaluation] = Reevaluation.SORT_ORDER_AND_STRING
+VISIBLE_TO_AND_SORT_ORDER: Final[Reevaluation] = Reevaluation.VISIBLE_TO_AND_SORT_ORDER
+VISIBLE_TO: Final[Reevaluation] = Reevaluation.VISIBLE_TO
+SORT_ORDER: Final[Reevaluation] = Reevaluation.SORT_ORDER
+NONE: Final[Reevaluation] = Reevaluation.NONE
+VISIBLE_TO_SORT_ORDER_STRING_AND_COLOR: Final[Reevaluation] = Reevaluation.VISIBLE_TO_SORTER_STRING_AND_COLOR
+SORT_ORDER_STRING_AND_COLOR: Final[Reevaluation] = Reevaluation.SORT_ORDER_STRING_AND_COLOR
+VISIBLE_TO_SORT_ORDER_AND_COLOR: Final[Reevaluation] = Reevaluation.VISIBLE_TO_SORT_ORDER_AND_COLOR
+VISIBLE_TO_AND_COLOR: Final[Reevaluation] = Reevaluation.VISIBLE_TO_AND_COLOR
+SORT_ORDER_AND_COLOR: Final[Reevaluation] = Reevaluation.SORT_ORDER_AND_COLOR
+COLOR: Final[Reevaluation] = Reevaluation.COLOR
+
+
+class Non_team_spectators(StrEnum):
+    DEFAULT_VISIBILITY = "Default Visibility"
+    VISIBLE_ALWAYS = "Visible Always"
+    VISIBLE_NEVER = "Visible Never"
+
+
+DEFAULT_VISIBILITY: Final[Non_team_spectators] = Non_team_spectators.DEFAULT_VISIBILITY
+VISIBLE_ALWAYS: Final[Non_team_spectators] = Non_team_spectators.VISIBLE_ALWAYS
+VISIBLE_NEVER: Final[Non_team_spectators] = Non_team_spectators.VISIBLE
+
+
 class Status(StrEnum):
     STUNNED = "Stunned"
     INVINCIBLE = "Invincible"
@@ -159,9 +203,13 @@ BLACK: Final[Color] = Color.BLACK
 
 class HudTextAlign(StrEnum):
     LEFT = "Left"
+    TOP = "Top"
+    RIGHT = "Right"
 
 
 LEFT: Final[HudTextAlign] = HudTextAlign.LEFT
+TOP: Final[HudTextAlign] = HudTextAlign.TOP
+RIGHT: Final[HudTextAlign] = HudTextAlign.RIGHT
 
 
 __all__ = [

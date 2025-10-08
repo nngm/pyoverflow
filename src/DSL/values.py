@@ -255,10 +255,6 @@ def input_binding_string(button: Buttons) -> str:
     return str(button)
 
 
-def string(fmt: str, *args) -> str:
-    return fmt.format(*args)
-
-
 def update_every_frame(value: Any) -> Any:
     return value
 

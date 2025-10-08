@@ -101,16 +101,15 @@ def play_effect(viewers: Any, effect: str, color: Any, position: Any, size: floa
     return None
 
 
-# Additional no-op or light state actions used by 5HPAT
-def create_hud_text(viewers: Any, header: Any, subheader: Any, text: str, align=None, sort_order=None, color1=None, color2=None, color3=None, visibility=None, visibility2=None) -> Any:
+def create_hud_text(visible_to: Player, header: string, subheader: string, text: string, location: HudTextAlign, sort_order: number, header_color: Color, subheader_color: Color, text_color: Color, reevaluation: Reevaluation, non_team_spectators: Non_team_spectators) -> Any:
     return None
 
 
-def create_in_world_text(viewers: Any, text: str, position: Any, size: float, clip=None, visibility=None, color=None, visibility2=None) -> Any:
+def create_in_world_text(visible_to: Player, text: string, position: Any, size: float, clip=None, reevaluation: Reevaluation =None, color=None, non_team_spectators: Non_team_spectators =None) -> Any:
     return None
 
 
-def create_progress_bar_in_world_text(viewers: Any, value: float, max_value: Optional[float], position: Any, size: float, clip=None, color1=None, color2=None, visibility=None, visibility2=None) -> Any:
+def create_progress_bar_in_world_text(visible_to: Player, value: float, max_value: Optional[float], position: Any, size: float, clip=None, color1=None, color2=None, reevaluation: Reevaluation =None, non_team_spectators: Non_team_spectators =None) -> Any:
     return None
 
 
