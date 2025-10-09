@@ -5,8 +5,8 @@ from overflow.DSL.owtyping import *
 
 class Condition(ABC):
     @abstractmethod
-    def __call__(self):
-        pass
+    def __call__(self) -> bool:
+        return True
 
     def __bool__(self) -> bool:
         return self()
