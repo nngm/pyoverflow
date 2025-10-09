@@ -141,7 +141,7 @@ class Non_team_spectators(StrEnum):
 
 DEFAULT_VISIBILITY: Final[Non_team_spectators] = Non_team_spectators.DEFAULT_VISIBILITY
 VISIBLE_ALWAYS: Final[Non_team_spectators] = Non_team_spectators.VISIBLE_ALWAYS
-VISIBLE_NEVER: Final[Non_team_spectators] = Non_team_spectators.VISIBLE
+VISIBLE_NEVER: Final[Non_team_spectators] = Non_team_spectators.VISIBLE_NEVER
 
 
 class Status(StrEnum):
@@ -220,7 +220,6 @@ __all__ = [
     "Team",
     *TeamId.__members__.keys(),
     "PlayerSlot",
-    "Player",
     *PlayerSlot.__members__.keys(),
     "CONDITIONS_NAME",
     "ACTIONS_NAME",
@@ -232,4 +231,8 @@ __all__ = [
     *Color.__members__.keys(),
     "HudTextAlign",
     *HudTextAlign.__members__.keys(),
+    "Reevaluation",
+    *Reevaluation.__members__.keys(),
+    "Non_team_spectators",
+    *Non_team_spectators.__members__.keys(),
 ]
