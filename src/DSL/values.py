@@ -243,7 +243,7 @@ def score_of(p: Any) -> int:
     return getattr(p, "score", 0)
 
 
-def color(name: str) -> str:
+def color(name: Color) -> Color:
     return name
 
 
