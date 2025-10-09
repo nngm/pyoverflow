@@ -62,10 +62,9 @@ def kill(victim: Any, killer: Optional[Any] = None) -> None:
     setattr(victim, "is_dead", True)
 
 
-def set_status(target: Any, other: Any, status: str, duration: float) -> None:
-    # Placeholder to record status effect.
+def set_status(player: player_parent, assister: player_parent, status: Status, duration: number) -> None:
     try:
-        target._status = (status, duration)
+        player._status = (status, duration)
     except Exception:
         pass
 
@@ -164,15 +163,15 @@ def set_aim_speed(player: Any, value: float) -> None:
     setattr(player, "aim_speed", value)
 
 
-def enable_death_spectate_all_players(player: Any) -> None:
+def enable_death_spectate_all_players(player: player_parent) -> None:
     return None
 
 
-def enable_death_spectate_target_hud(player: Any) -> None:
+def enable_death_spectate_target_hud(player: player_parent) -> None:
     return None
 
 
-def disable_built_in_game_mode_respawning(player: Any) -> None:
+def disable_built_in_game_mode_respawning(players: player_parent | List[player_parent]) -> None:
     return None
 
 
@@ -196,7 +195,7 @@ def disable_inspector_recording() -> None:
     return None
 
 
-def set_damage_dealt(player: Any, value: float) -> None:
+def set_damage_dealt(player: player_parent, value: number) -> None:
     setattr(player, "damage_dealt", value)
 
 
