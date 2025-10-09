@@ -76,6 +76,7 @@ class player_parent(metaclass=WorkshopVarMeta):
         self.HERO: Player = None
         self.is_melee: bool = False
         self.Punch: bool = True
+        self._status = None
 
     def __getattr__(self, name: str):
         d = object.__getattribute__(self, "__dict__")
