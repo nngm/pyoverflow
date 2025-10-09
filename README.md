@@ -12,7 +12,8 @@ conda activate overwatch
 Write your Python code in main.py
 
 ```sh
-./compile
+pip install .
+overflow main.py
 ```
 
 `Final` means it will be inlined in the workshop script.
