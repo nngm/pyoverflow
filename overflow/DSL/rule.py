@@ -12,7 +12,7 @@ class Condition(ABC):
         return self()
 
 
-def rules(*conds: List[Condition]):
+def rules(*conds: Condition):
     def deco(func):
         if hasattr(func, "_rules"):
             func._rules.extend(conds)
