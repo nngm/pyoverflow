@@ -1,26 +1,26 @@
 import argparse
 import os
 
-def parse():
-    pass
+def parse(src_code: str) -> str:
+    return src_code
 
-def desugar():
-    pass
+def desugar(src_ast: str) -> str:
+    return src_ast
 
-def first_inlining():
-    pass
+def first_inlining(IR: str) -> str:
+    return IR
 
-def propagate_constant():
-    pass
+def propagate_constant(IR: str) -> str:
+    return IR
 
-def lower_data_structure():
-    pass
+def lower_data_structure(IR: str) -> str:
+    return IR
 
-def build_code():
-    pass
+def build_code(IR: str) -> str:
+    return IR
 
-def optimize():
-    pass
+def optimize(tar_code: str) -> str:
+    return tar_code
 
 def compile(src_code: str, lang: str = "en") -> str:
     src_ast = parse(src_code)
