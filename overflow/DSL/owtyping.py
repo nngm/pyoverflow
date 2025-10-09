@@ -1,7 +1,7 @@
 import operator
 from overflow.DSL.constants import *
 from overflow.DSL.auto_array import *
-from typing import Final
+from typing import *
 
 null: Final = None
 Null: Final = None
@@ -72,8 +72,8 @@ class player_parent(metaclass=WorkshopVarMeta):
     def __init__(self):
         object.__setattr__(self, "_vars", {})
         self.TEAM: Team = None
-        self.SLOT: Player = None
-        self.HERO: Player = None
+        self.SLOT: PlayerSlot = None
+        self.HERO: PlayerSlot = None
         self.is_melee: bool = False
         self.Punch: bool = True
         self._status = None
