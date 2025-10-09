@@ -76,8 +76,6 @@ class PlayerSlot(StrEnum):
     HELLO = "HELLO"
 
 
-Player = PlayerSlot
-
 ALL: Final[PlayerSlot] = PlayerSlot.ALL
 SLOT_0: Final[PlayerSlot] = PlayerSlot.SLOT_0
 SLOT_1: Final[PlayerSlot] = PlayerSlot.SLOT_1
