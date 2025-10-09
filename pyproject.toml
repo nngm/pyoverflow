@@ -1,0 +1,12 @@
+[project]
+name = "pyoverflow"
+version = "0.1.0"
+description = "Python → Overwatch Workshop compiler"
+readme = "README.md"
+requires-python = ">=3.11, <3.12"
+dependencies = [
+    "PyYAML",
+]
+
+[project.scripts]
+overflow = "overflow.cli:main"
