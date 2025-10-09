@@ -100,15 +100,15 @@ def play_effect(viewers: Any, effect: str, color: Any, position: Any, size: floa
     return None
 
 
-def create_hud_text(visible_to: Player, header: string, subheader: string, text: string, location: HudTextAlign, sort_order: number, header_color: Color, subheader_color: Color, text_color: Color, reevaluation: Reevaluation, non_team_spectators: Non_team_spectators) -> Any:
+def create_hud_text(visible_to: player_parent, header: string, subheader: string, text: string, location: HudTextAlign, sort_order: number, header_color: Color, subheader_color: Color, text_color: Color, reevaluation: Reevaluation, non_team_spectators: Non_team_spectators) -> Any:
     return None
 
 
-def create_in_world_text(visible_to: Player, text: string, position: Any, size: float, clip=None, reevaluation: Reevaluation =None, color=None, non_team_spectators: Non_team_spectators =None) -> Any:
+def create_in_world_text(visible_to: player_parent, text: string, position: Any, size: float, clip=None, reevaluation: Reevaluation =None, color=None, non_team_spectators: Non_team_spectators =None) -> Any:
     return None
 
 
-def create_progress_bar_in_world_text(visible_to: Player, value: float, max_value: Optional[float], position: Any, size: float, clip=None, color1=None, color2=None, reevaluation: Reevaluation =None, non_team_spectators: Non_team_spectators =None) -> Any:
+def create_progress_bar_in_world_text(visible_to: player_parent, value: float, max_value: Optional[float], position: Any, size: float, clip=None, color1=None, color2=None, reevaluation: Reevaluation =None, non_team_spectators: Non_team_spectators =None) -> Any:
     return None
 
 

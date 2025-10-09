@@ -19,7 +19,7 @@ def ongoing_global(func):
     return wrapper
 
 
-def ongoing_each_player(TEAM: Team, PLAYER: Player):
+def ongoing_each_player(TEAM: Team, PLAYER: PlayerSlot):
     def real_decorator(func):
         conditions = getattr(func, "_rules", [])
 
