@@ -1,6 +1,6 @@
 import operator
-from src.DSL.constants import *
-from src.DSL.auto_array import *
+from overflow.DSL.constants import *
+from overflow.DSL.auto_array import *
 from typing import Final
 
 null: Final = None
@@ -34,32 +34,32 @@ class Expr:
         return _resolve(self._v)
 
     def __eq__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, "==", other)
 
     def __ne__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, "!=", other)
 
     def __lt__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, "<", other)
 
     def __le__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, "<=", other)
 
     def __gt__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, ">", other)
 
     def __ge__(self, other):
-        from src.DSL.rule import compare
+        from overflow.DSL.rule import compare
 
         return compare(self, ">=", other)
 

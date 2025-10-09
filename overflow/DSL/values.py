@@ -1,8 +1,8 @@
-from src.DSL.ctx_init import _ctx
-from src.DSL.ctx_cur_arr_elem import CURRENT_ARRAY_ELEMENT
-from src.DSL.owglobals import *
-from src.DSL.owtyping import *
-from src.DSL.rule import *
+from overflow.DSL.ctx_init import _ctx
+from overflow.DSL.ctx_cur_arr_elem import CURRENT_ARRAY_ELEMENT
+from overflow.DSL.owglobals import *
+from overflow.DSL.owtyping import *
+from overflow.DSL.rule import *
 import math
 import random
 

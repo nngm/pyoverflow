@@ -37,7 +37,7 @@ def chase_player_variable_at_rate(
 
 
 def chase_global_variable_at_rate(name: str, destination: Any, rate: float) -> None:
-    import src.DSL.owglobals as og
+    import overflow.DSL.owglobals as og
 
     try:
         setattr(og, name, destination)

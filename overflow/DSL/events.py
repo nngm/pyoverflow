@@ -1,7 +1,7 @@
 import inspect
 from functools import wraps
-from src.DSL.owglobals import *
-from src.DSL.ctx_event_player import *
+from overflow.DSL.owglobals import *
+from overflow.DSL.ctx_event_player import *
 
 
 def ongoing_global(func):

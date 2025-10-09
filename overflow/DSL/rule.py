@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
-from src.DSL.constants import *
-from src.DSL.owtyping import *
+from overflow.DSL.constants import *
+from overflow.DSL.owtyping import *
 
 
 class Condition(ABC):

@@ -1,4 +1,4 @@
-from src.DSL.owtyping import *
+from overflow.DSL.owtyping import *
 
 global_functions = []
 each_player_functions = []
