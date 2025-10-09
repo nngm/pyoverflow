@@ -69,6 +69,13 @@ def main():
         return 2
 
     out_path = _decide_output_path(src_path, args.output)
+
+    if out_path.exists():
+        ans = input(f"[overflow] warning: '{out_path}' already exists. Overwrite? (Y/n): ").strip().lower()
+        if ans not in ("y", "yes", ""):
+            print("[overflow] cancelled by user.")
+            return 0
+
     try:
         out_path.parent.mkdir(parents=True, exist_ok=True)
         out_path.write_text(ow_text, encoding="utf-8", newline="\n")
