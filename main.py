@@ -1,16 +1,14 @@
-from src.overwatch import *
+from overflow import *
 
 class player(player_parent):
-    hasMoved = Null
+    hasMoved: bool
 
 ALL_PLAYERS.adopt([player() for _ in range(12)])
-ALL_PLAYERS: list[player]
 event_player = cast(player, event_player)
 
 class Global(metaclass=WorkshopVarMeta):
-    foo = Null
-    bar = Null
-
+    foo: string
+    bar: list[number]
 
 @ongoing_global
 def init_global_variables():
