@@ -92,7 +92,7 @@ class player_parent(metaclass=WorkshopVarMeta):
 
 
 class vector:
-    def __init__(self, x, y, z):
+    def __init__(self, x: number, y: number, z: number):
         self.x = x
         self.y = y
         self.z = z
