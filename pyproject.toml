@@ -10,3 +10,4 @@ dependencies = [
 
 [project.scripts]
 overflow = "overflow.cli:main"
+flowover = "overflow.compiler.decompile:main"
