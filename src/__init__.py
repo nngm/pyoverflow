@@ -1,5 +1,5 @@
 # overwatch.py
-from src.DSL.values import *
-from src.DSL.events import *
-from src.DSL.rule import *
-from src.DSL.actions import *
+from .DSL.values import *
+from .DSL.events import *
+from .DSL.rule import *
+from .DSL.actions import *
